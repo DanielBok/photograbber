@@ -9,7 +9,7 @@ import click
 import numpy as np
 from PIL import Image
 from PIL.JpegImagePlugin import JpegImageFile
-from skimage.measure import compare_ssim
+from skimage.metrics import structural_similarity
 
 
 class PhotoGrab:
@@ -81,7 +81,7 @@ class PhotoGrab:
             for exist in self.existing_images:
                 if exist.size != gray.size:
                     continue
-                if compare_ssim(gray, exist, multichannel=True) > 0.9:
+                if structural_similarity(gray, exist, multichannel=True) > 0.9:
                     return None
 
             return photo

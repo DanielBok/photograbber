@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='photograb',
-    version='0.0.1',
+    version='1.0',
     py_modules=['main'],
     install_requires=[
         'Click',
